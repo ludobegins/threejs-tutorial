@@ -36,14 +36,6 @@ h1, h2, h3, blockquote {
   font-style: normal;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-
-
   header {
     background: var(--dark-bg);
     grid-column: 2 / span 5;

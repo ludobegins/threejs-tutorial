@@ -36,9 +36,11 @@ function moveCamera() {
   ludo.rotation.y += 0.01
   ludo.rotation.z += 0.01
 
-  camera.position.z = t * -0.01
-  camera.position.x = t * -0.0002
-  camera.position.y = t * -0.0002
+  camera.position.z = t * -0.02
+  // camera.position.x = t * -0.0002
+  // camera.position.y = t * -0.0002
+
+  moon2.rotation.z += 0.1
 
 }
 
@@ -68,7 +70,7 @@ scene.add(pointLight, ambientLight)
 
 const lightHelper = new THREE.PointLightHelper(pointLight)
 const gridHelper = new THREE.GridHelper(200, 50)
-// scene.add(lightHelper, gridHelper)
+scene.add(lightHelper, gridHelper)
 
 
 const controls = new OrbitControls(camera, renderer.domElement)
@@ -115,6 +117,17 @@ const moon = new THREE.Mesh(
 )
 
 scene.add(moon)
+
+const moon2 = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture
+  })
+)
+
+moon2.position.set(10, 0, 20)
+scene.add(moon2)
 
 document.body.onscroll = moveCamera
 
